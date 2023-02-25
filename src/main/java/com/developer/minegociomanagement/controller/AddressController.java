@@ -29,6 +29,10 @@ public class AddressController {
     public Optional<AddressEntity> findAddressById(@PathVariable("id") Long id) {
         return addressService.findById(id);
     }
+    @GetMapping("/findbyidclient/{id}")
+    public List<AddressEntity> findAddressByIdClient(@PathVariable("id") Long id) {
+        return addressService.findByIdClient(id);
+    }
 
 
     @PostMapping("/saveAddress")

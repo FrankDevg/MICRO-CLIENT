@@ -2,6 +2,7 @@ package com.developer.minegociomanagement.controller;
 
 
 import com.developer.minegociomanagement.dto.request.ClientRequest;
+import com.developer.minegociomanagement.dto.response.ClientAddressResponse;
 import com.developer.minegociomanagement.dto.response.ClientResponse;
 import com.developer.minegociomanagement.entity.ClientEntity;
 import com.developer.minegociomanagement.service.interfaces.ClientService;
@@ -28,6 +29,10 @@ public class ClientController {
     @GetMapping("/{id}")
     public Optional<ClientEntity> findClientById(@PathVariable("id") Long id) {
         return clientService.findById(id);
+    }
+    @GetMapping("/findClientByIdentificationNumber/{id}")
+    public List<ClientAddressResponse> findClientByIdentificationNumber(@PathVariable("id") String id) {
+        return clientService.findClientByIdentificationNumber(id);
     }
 
     @PostMapping("/saveClient")

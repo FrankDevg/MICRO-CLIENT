@@ -30,6 +30,11 @@ public class AddressServiceImpl implements AddressService {
         return addressRepository.findById(id);
     }
 
+    @Override
+    public List<AddressEntity> findByIdClient(Long idclient) {
+        return addressRepository.findByIdCliente(idclient);
+    }
+
 
     @Override
     public AddressEntity saveAddress(AddressEntity addressEntity) {
