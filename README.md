@@ -15,5 +15,6 @@ en el file "minegocio-management.postman_collection.json"
 Se encuentra los diferentes endpoints para el uso del postman
 Se ocuparon patrones de diseño
 Se deben cambiar los valores en el project.properties de la base de datos y password
+###### En la rama developer se subiran las actualizaciones adiconales al proyecto, despues del deadline de la fecha de entrega
 
 
