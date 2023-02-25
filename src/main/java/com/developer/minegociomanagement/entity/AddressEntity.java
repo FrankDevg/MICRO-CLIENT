@@ -19,6 +19,10 @@ public class AddressEntity {
 
     @Column(name = "direccion")
     private String direccion;
+    @Column(name = "matriz")
+    private Boolean matriz;
+    @Column(name = "id_cliente")
+    private int id_cliente;
 
     public AddressEntity(){
 
@@ -62,5 +66,21 @@ public class AddressEntity {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public Boolean getMatriz() {
+        return matriz;
+    }
+
+    public void setMatriz(Boolean matriz) {
+        this.matriz = matriz;
+    }
+
+    public int getId_cliente() {
+        return id_cliente;
+    }
+
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
     }
 }

@@ -13,7 +13,7 @@ public class ClientResponse implements Serializable {
 
     private String correo;
     private String celular;
-    private String id_direccion;
+
     public ClientResponse() {
     }
 
@@ -57,11 +57,5 @@ public class ClientResponse implements Serializable {
         this.celular = celular;
     }
 
-    public String getId_direccion() {
-        return id_direccion;
-    }
 
-    public void setId_direccion(String id_direccion) {
-        this.id_direccion = id_direccion;
-    }
 }

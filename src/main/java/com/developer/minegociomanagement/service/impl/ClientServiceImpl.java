@@ -1,9 +1,13 @@
 package com.developer.minegociomanagement.service.impl;
 
+import com.developer.minegociomanagement.dto.mapper.AddressClientMapper;
+import com.developer.minegociomanagement.dto.mapper.AddressMapper;
 import com.developer.minegociomanagement.dto.mapper.ClientMapper;
 import com.developer.minegociomanagement.dto.request.ClientRequest;
 import com.developer.minegociomanagement.dto.response.ClientResponse;
+import com.developer.minegociomanagement.entity.AddressEntity;
 import com.developer.minegociomanagement.entity.ClientEntity;
+import com.developer.minegociomanagement.repository.AddressRepository;
 import com.developer.minegociomanagement.repository.ClientRepository;
 import com.developer.minegociomanagement.service.interfaces.ClientService;
 import org.springframework.stereotype.Service;
@@ -14,10 +18,15 @@ import java.util.Optional;
 @Service
 public class ClientServiceImpl implements ClientService {
 
-    private final ClientRepository clientRepository;
 
-    public ClientServiceImpl(ClientRepository clientRepository) {
+    private final ClientRepository clientRepository;
+    private final AddressRepository addressRepository;
+
+    public ClientServiceImpl(ClientRepository clientRepository,AddressRepository  addressRepository) {
+
         this.clientRepository = clientRepository;
+        this.addressRepository = addressRepository;
+
     }
 
     @Override
@@ -32,6 +41,7 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public ClientEntity saveClient(ClientEntity clientEntity) {
+
         return clientRepository.save(clientEntity);
     }
 
@@ -50,8 +60,12 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public ClientResponse saveClient(ClientRequest clientRequest) {
         ClientEntity clientEntity = ClientMapper.MAPPER.fromRequestToEntity(clientRequest);
+        AddressEntity addressEntity = AddressClientMapper.MAPPER.fromRequestToEntity(clientRequest);
         clientRepository.save(clientEntity);
-        return ClientMapper.MAPPER.fromEntityToResponse(clientEntity);
+        ClientResponse clientResponse=ClientMapper.MAPPER.fromEntityToResponse(clientEntity);
+        addressEntity.setId_cliente(clientResponse.getId_cliente());
+        addressRepository.save(addressEntity);
+        return clientResponse;
     }
 
     @Override

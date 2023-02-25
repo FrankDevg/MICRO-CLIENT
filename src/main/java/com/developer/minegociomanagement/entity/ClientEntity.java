@@ -13,7 +13,8 @@ public class ClientEntity {
 
     @Column(name = "tipo_identificacion")
     private String tipo_identificacion;
-
+    @Column(name = "numero_identificacion",unique = true)
+    private String numero_identificacion;
     @Column(name = "nombres")
     private String nombres;
 
@@ -21,20 +22,18 @@ public class ClientEntity {
     private String correo;
     @Column(name = "celular")
     private String celular;
-    @Column(name = "id_direccion")
-    private int id_direccion;
+
 
     public ClientEntity(){
 
     }
 
-    public ClientEntity(Long id_cliente, String tipo_identificacion, String nombres, String correo, String celular, int id_direccion) {
+    public ClientEntity(Long id_cliente, String tipo_identificacion, String numero_identificacion, String nombres, String correo, String celular) {
         this.id_cliente = id_cliente;
         this.tipo_identificacion = tipo_identificacion;
         this.nombres = nombres;
         this.correo = correo;
         this.celular = celular;
-        this.id_direccion = id_direccion;
     }
 
     public Long getId_cliente() {
@@ -77,11 +76,11 @@ public class ClientEntity {
         this.celular = celular;
     }
 
-    public int getId_direccion() {
-        return id_direccion;
+    public String getNumero_identificacion() {
+        return numero_identificacion;
     }
 
-    public void setId_direccion(int id_direccion) {
-        this.id_direccion = id_direccion;
+    public void setNumero_identificacion(String numero_identificacion) {
+        this.numero_identificacion = numero_identificacion;
     }
 }

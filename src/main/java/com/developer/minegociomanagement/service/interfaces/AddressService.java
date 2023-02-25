@@ -10,6 +10,7 @@ import java.util.Optional;
 public interface AddressService {
     List<AddressEntity> findAllAddress();
     Optional<AddressEntity> findById(Long id);
+
     AddressEntity saveAddress(AddressEntity addressEntity);
     AddressEntity updateAddress(AddressEntity addressEntity);
     void deleteAddress(Long id);

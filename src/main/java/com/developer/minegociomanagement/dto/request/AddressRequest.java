@@ -8,6 +8,8 @@ public class AddressRequest implements Serializable {
     private String ciudad;
 
     private String direccion;
+    private Boolean matriz;
+
 
     public String getProvincia() {
         return provincia;
@@ -31,5 +33,13 @@ public class AddressRequest implements Serializable {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public Boolean getMatriz() {
+        return matriz;
+    }
+
+    public void setMatriz(Boolean matriz) {
+        this.matriz = matriz;
     }
 }
