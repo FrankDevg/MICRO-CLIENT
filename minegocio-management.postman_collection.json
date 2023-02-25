@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "18841cc7-292c-4cec-a720-e319af3f171d",
+		"name": "minegocio-management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15595185"
+	},
+	"item": [
+		{
+			"name": "SaveClient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipo_identificacion\":\"RUC\",\r\n    \"numero_identificacion\":\"1723291090\",\r\n    \"nombres\":\"franklin andres ruiz gomez\",\r\n    \"correo\":\"franklin.ruiz@gmail.comd\",\r\n    \"celular\":\"0983368026\",\r\n    \"id_direccion\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/client/saveClient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"client",
+						"saveClient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipo_identificacion\":\"RUC\",\r\n    \"numero_identificacion\":\"1723291090\",\r\n    \"nombres\":\"franklin andres ruiz gomez\",\r\n    \"correo\":\"franklin.ruiz@gmail.comd\",\r\n    \"celular\":\"0983368026\",\r\n    \"id_direccion\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/client/saveClient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"client",
+						"saveClient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllClients",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get client by id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get client by identity number",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "deleteClient",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "saveAddress",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get Address",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get Address by client id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
