@@ -1,0 +1,2 @@
+# minegociorepo
+prueba tecnica
