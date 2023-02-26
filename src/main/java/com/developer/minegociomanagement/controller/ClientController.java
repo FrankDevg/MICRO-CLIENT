@@ -37,8 +37,8 @@ public class ClientController {
     }
 
     @PostMapping("/saveClient")
-    public ClientEntity saveClient(@RequestBody ClientEntity clientEntity) {
-        return clientService.saveClient(clientEntity);
+    public ResultClientResponse saveEmpResponse(@RequestBody ClientRequest clientRequest) throws Exception {
+        return clientService.saveClient(clientRequest);
     }
 
     @PutMapping("/updateClient")
@@ -54,8 +54,9 @@ public class ClientController {
 //    Using Request and Response with save and update client
 
     @PostMapping("/res")
-    public ResultClientResponse saveEmpResponse(@RequestBody ClientRequest clientRequest) throws Exception {
-        return clientService.saveClient(clientRequest);
+
+    public ClientEntity saveClient(@RequestBody ClientEntity clientEntity) {
+        return clientService.saveClient(clientEntity);
     }
 
     @PutMapping("/res/{id}")
