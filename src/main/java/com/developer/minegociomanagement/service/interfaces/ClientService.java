@@ -18,7 +18,7 @@ public interface ClientService {
     void deleteClient(Long id);
 
 //    Using Request for Save and Update Client
-    ClientResponse saveClient(ClientRequest clientRequest);
+    ClientResponse saveClient(ClientRequest clientRequest) throws Exception;
     ClientResponse updateClient(ClientRequest clientRequest, Long id);
 
 

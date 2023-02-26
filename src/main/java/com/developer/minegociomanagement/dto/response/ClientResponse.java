@@ -7,7 +7,9 @@ public class ClientResponse implements Serializable {
 
     private Integer id_cliente;
 
+
     private String numero_identificacion;
+    private String tipo_identificacion;
 
     private String nombres;
 
@@ -57,5 +59,11 @@ public class ClientResponse implements Serializable {
         this.celular = celular;
     }
 
+    public String getTipo_identificacion() {
+        return tipo_identificacion;
+    }
 
+    public void setTipo_identificacion(String tipo_identificacion) {
+        this.tipo_identificacion = tipo_identificacion;
+    }
 }

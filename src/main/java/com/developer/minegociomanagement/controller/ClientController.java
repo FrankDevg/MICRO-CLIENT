@@ -53,7 +53,7 @@ public class ClientController {
 //    Using Request and Response with save and update client
 
     @PostMapping("/res")
-    public ClientResponse saveEmpResponse(@RequestBody ClientRequest clientRequest) {
+    public ClientResponse saveEmpResponse(@RequestBody ClientRequest clientRequest) throws Exception {
         return clientService.saveClient(clientRequest);
     }
 
