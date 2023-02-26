@@ -62,24 +62,30 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public ResultClientResponse saveClient(ClientRequest clientRequest) throws Exception {
+        ResultClientResponse resultClientResponse = new ResultClientResponse();
+
         try{
+            //validar si el tipo de identificacion es RUC o DNI sin sensibilidad a mayusculas
+
+
+
+            if(clientRequest.getTipo_identificacion().equals("RUC") || clientRequest.getTipo_identificacion().equals("DNI")){
+
             ClientEntity clientEntity = ClientMapper.MAPPER.fromRequestToEntity(clientRequest);
             AddressEntity addressEntity = AddressClientMapper.MAPPER.fromRequestToEntity(clientRequest);
-
             clientRepository.save(clientEntity);
             ClientResponse clientResponse=ClientMapper.MAPPER.fromEntityToResponse(clientEntity);
-            //verificar si el id del cliente es nulo por test
-            if(clientResponse.getId_cliente()==null)clientResponse.setId_cliente(0);
-            if(addressEntity.getId_direccion()==null)addressEntity.setId_direccion(0L);
-
-            addressEntity.setId_cliente(clientResponse.getId_cliente());
-            addressRepository.save(addressEntity);
-            ResultClientResponse resultClientResponse = new ResultClientResponse();
-            resultClientResponse.setCode(200);
-            resultClientResponse.setMessage("Se ingreso correctamente.");
-            resultClientResponse.setResult(clientResponse);
-
-
+                 if(clientResponse.getId_cliente()==null)clientResponse.setId_cliente(0);
+                 if(addressEntity.getId_direccion()==null)addressEntity.setId_direccion(0L);
+                 addressEntity.setId_cliente(clientResponse.getId_cliente());
+                 addressRepository.save(addressEntity);
+                 resultClientResponse.setCode(200);
+                 resultClientResponse.setMessage("Se ingreso correctamente.");
+                 resultClientResponse.setResult(clientResponse);
+            }else{
+                resultClientResponse.setCode(400);
+                resultClientResponse.setMessage("No se pudo ingresar el cliente: Solo se admite 2 TIPOS DE IDENTIFICACION  RUC o DNI");
+            }
             return resultClientResponse;
 
         }catch(NullPointerException exp){

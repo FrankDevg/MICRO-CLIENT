@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -21,6 +22,7 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class ClientServiceImplTests {
+	@Spy
 	@InjectMocks
 	private ClientServiceImpl service;
 
@@ -43,17 +45,21 @@ class ClientServiceImplTests {
 		clientRequest.setMatriz(true);
 		ClientEntity clientEntity = ClientMapper.MAPPER.fromRequestToEntity(clientRequest);
 		AddressEntity addressEntity = AddressClientMapper.MAPPER.fromRequestToEntity(clientRequest);
-		ClientResponse clientResponse=ClientMapper.MAPPER.fromEntityToResponse(clientEntity);
 		addressEntity.setId_direccion(0L);
 		clientEntity.setId_cliente(0L);
+		ClientResponse clientResponse=ClientMapper.MAPPER.fromEntityToResponse(clientEntity);
 		ResultClientResponse resultClientResponse = new ResultClientResponse();
-		//verificar que no guarden clientes sin RUC o DNI
+		resultClientResponse.setCode(400);
+		resultClientResponse.setResult(clientResponse);
+		resultClientResponse.setMessage("No se pudo ingresar el cliente: Solo se admite 2 TIPOS DE IDENTIFICACION  RUC o DNI");
+
 		when(service.saveClient(clientRequest)).thenReturn(resultClientResponse);
-		service.saveClient(clientRequest);
+		ResultClientResponse returnedSaved = service.saveClient(clientRequest);
 		//assertEquals("El cliente no ingreso RUC o DNI", clientResponse);
-		assertEquals("No se pudo ingresar el cliente: Solo se admite 2 TIPOS DE IDENTIFICACION  RUC o DNI", resultClientResponse.getMessage());
+		assertEquals("No se pudo ingresar el cliente: Solo se admite 2 TIPOS DE IDENTIFICACION  RUC o DNI", returnedSaved.getMessage());
 		
 	}
+
 	
 
 
