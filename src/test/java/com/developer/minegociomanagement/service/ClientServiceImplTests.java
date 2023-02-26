@@ -4,6 +4,7 @@ import com.developer.minegociomanagement.dto.mapper.AddressClientMapper;
 import com.developer.minegociomanagement.dto.mapper.ClientMapper;
 import com.developer.minegociomanagement.dto.request.ClientRequest;
 import com.developer.minegociomanagement.dto.response.ClientResponse;
+import com.developer.minegociomanagement.dto.response.ResultClientResponse;
 import com.developer.minegociomanagement.entity.AddressEntity;
 import com.developer.minegociomanagement.entity.ClientEntity;
 import com.developer.minegociomanagement.repository.AddressRepository;
@@ -14,13 +15,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.hamcrest.Matchers.any;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.when;
-import static org.postgresql.hostchooser.HostRequirement.any;
 
 @ExtendWith(MockitoExtension.class)
 class ClientServiceImplTests {
@@ -49,11 +46,12 @@ class ClientServiceImplTests {
 		ClientResponse clientResponse=ClientMapper.MAPPER.fromEntityToResponse(clientEntity);
 		addressEntity.setId_direccion(0L);
 		clientEntity.setId_cliente(0L);
+		ResultClientResponse resultClientResponse = new ResultClientResponse();
 		//verificar que no guarden clientes sin RUC o DNI
-		when(service.saveClient(clientRequest)).thenReturn(clientResponse);
+		when(service.saveClient(clientRequest)).thenReturn(resultClientResponse);
 		service.saveClient(clientRequest);
 		//assertEquals("El cliente no ingreso RUC o DNI", clientResponse);
-		assertEquals("RUC", clientResponse.getTipo_identificacion());
+		assertEquals("No se pudo ingresar el cliente: Solo se admite 2 TIPOS DE IDENTIFICACION  RUC o DNI", resultClientResponse.getMessage());
 		
 	}
 	

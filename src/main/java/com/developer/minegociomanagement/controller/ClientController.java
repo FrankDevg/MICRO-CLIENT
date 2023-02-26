@@ -4,6 +4,7 @@ package com.developer.minegociomanagement.controller;
 import com.developer.minegociomanagement.dto.request.ClientRequest;
 import com.developer.minegociomanagement.dto.response.ClientAddressResponse;
 import com.developer.minegociomanagement.dto.response.ClientResponse;
+import com.developer.minegociomanagement.dto.response.ResultClientResponse;
 import com.developer.minegociomanagement.entity.ClientEntity;
 import com.developer.minegociomanagement.service.interfaces.ClientService;
 import org.springframework.web.bind.annotation.*;
@@ -53,7 +54,7 @@ public class ClientController {
 //    Using Request and Response with save and update client
 
     @PostMapping("/res")
-    public ClientResponse saveEmpResponse(@RequestBody ClientRequest clientRequest) throws Exception {
+    public ResultClientResponse saveEmpResponse(@RequestBody ClientRequest clientRequest) throws Exception {
         return clientService.saveClient(clientRequest);
     }
 

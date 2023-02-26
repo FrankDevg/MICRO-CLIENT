@@ -20,6 +20,7 @@ public class ClientAddressResponse implements Serializable {
     public ClientAddressResponse() {
     }
 
+
     public Integer getId_cliente() {
         return id_cliente;
     }

@@ -1,12 +1,10 @@
 package com.developer.minegociomanagement.service.impl;
 
-import com.developer.minegociomanagement.dto.mapper.AddressClientMapper;
-import com.developer.minegociomanagement.dto.mapper.AddressMapper;
-import com.developer.minegociomanagement.dto.mapper.ClientAddressMapper;
-import com.developer.minegociomanagement.dto.mapper.ClientMapper;
+import com.developer.minegociomanagement.dto.mapper.*;
 import com.developer.minegociomanagement.dto.request.ClientRequest;
 import com.developer.minegociomanagement.dto.response.ClientAddressResponse;
 import com.developer.minegociomanagement.dto.response.ClientResponse;
+import com.developer.minegociomanagement.dto.response.ResultClientResponse;
 import com.developer.minegociomanagement.entity.AddressEntity;
 import com.developer.minegociomanagement.entity.ClientEntity;
 import com.developer.minegociomanagement.repository.AddressRepository;
@@ -63,7 +61,7 @@ public class ClientServiceImpl implements ClientService {
 //    Using Request and Response with save and update client
 
     @Override
-    public ClientResponse saveClient(ClientRequest clientRequest) throws Exception {
+    public ResultClientResponse saveClient(ClientRequest clientRequest) throws Exception {
         try{
             ClientEntity clientEntity = ClientMapper.MAPPER.fromRequestToEntity(clientRequest);
             AddressEntity addressEntity = AddressClientMapper.MAPPER.fromRequestToEntity(clientRequest);
@@ -76,7 +74,13 @@ public class ClientServiceImpl implements ClientService {
 
             addressEntity.setId_cliente(clientResponse.getId_cliente());
             addressRepository.save(addressEntity);
-            return clientResponse;
+            ResultClientResponse resultClientResponse = new ResultClientResponse();
+            resultClientResponse.setCode(200);
+            resultClientResponse.setMessage("Se ingreso correctamente.");
+            resultClientResponse.setResult(clientResponse);
+
+
+            return resultClientResponse;
 
         }catch(NullPointerException exp){
 

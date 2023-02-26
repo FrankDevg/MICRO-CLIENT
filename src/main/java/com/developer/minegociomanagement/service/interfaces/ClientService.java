@@ -3,6 +3,7 @@ package com.developer.minegociomanagement.service.interfaces;
 import com.developer.minegociomanagement.dto.request.ClientRequest;
 import com.developer.minegociomanagement.dto.response.ClientAddressResponse;
 import com.developer.minegociomanagement.dto.response.ClientResponse;
+import com.developer.minegociomanagement.dto.response.ResultClientResponse;
 import com.developer.minegociomanagement.entity.ClientEntity;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public interface ClientService {
     void deleteClient(Long id);
 
 //    Using Request for Save and Update Client
-    ClientResponse saveClient(ClientRequest clientRequest) throws Exception;
+    ResultClientResponse saveClient(ClientRequest clientRequest) throws Exception;
     ClientResponse updateClient(ClientRequest clientRequest, Long id);
 
 
