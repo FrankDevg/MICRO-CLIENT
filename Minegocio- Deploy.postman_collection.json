@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "18841cc7-292c-4cec-a720-e319af3f171d",
-		"name": "minegocio-management",
+		"_postman_id": "113d7aa8-2a67-4d33-b133-4314859ab2f6",
+		"name": "Minegocio- Deploy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "15595185"
 	},
@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"tipo_identificacion\":\"RUC\",\r\n    \"numero_identificacion\":\"1\",\r\n    \"nombres\":\"joha  ruiz gomez sd\",\r\n    \"correo\":\"joha.ruiz@gmail.comd\",\r\n    \"celular\":\"0983368026\",\r\n    \"provincia\":1,\r\n    \"ciudad\":2,\r\n    \"direccion\":\"El condor y paseo K\",\r\n    \"matriz\":true\r\n    \r\n}",
+					"raw": "{\r\n    \"tipo_identificacion\":\"RUC\",\r\n    \"numero_identificacion\":\"1\",\r\n    \"nombres\":\"joha  ruiz gomez sd\",\r\n    \"correo\":\"joha.ruiz@gmail.comd\",\r\n    \"celular\":\"0983368026\",\r\n    \"provincia\":\"Pichincha\",\r\n    \"ciudad\":\"Quito\",\r\n    \"direccion\":\"El condor y paseo K\",\r\n    \"matriz\":true\r\n    \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -21,10 +21,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/client/saveClient",
+					"raw": "http://20.242.241.83:8080/client/saveClient",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"20",
+						"242",
+						"241",
+						"83"
 					],
 					"port": "8080",
 					"path": [
@@ -36,13 +39,13 @@
 			"response": []
 		},
 		{
-			"name": "update Client",
+			"name": "updateClient",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id_cliente\":3,\r\n    \"tipo_identificacion\":\"DNI\",\r\n    \"numero_identificacion\":\"1723291090\",\r\n    \"nombres\":\"franklin andres ruiz gomez\",\r\n    \"correo\":\"franklin.ruiz@gmail.com\",\r\n    \"celular\":\"0983368026\",\r\n    \"id_direccion\":1\r\n}",
+					"raw": "{\r\n    \"tipo_identificacion\":\"DNI\",\r\n    \"numero_identificacion\":\"1723291090\",\r\n    \"nombres\":\"Franklin Andrés Ruiz Gomez\",\r\n    \"correo\":\"franklin.ruiz@gmail.comd\",\r\n    \"celular\":\"0983368026\"\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -50,10 +53,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/client/updateClient",
+					"raw": "http://20.242.241.83:8080/client/updateClient",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"20",
+						"242",
+						"241",
+						"83"
 					],
 					"port": "8080",
 					"path": [
@@ -70,10 +76,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/client",
+					"raw": "http://20.242.241.83:8080/client",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"20",
+						"242",
+						"241",
+						"83"
 					],
 					"port": "8080",
 					"path": [
@@ -84,29 +93,47 @@
 			"response": []
 		},
 		{
-			"name": "getClientbyID",
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
-		},
-		{
-			"name": "getCLientByIdentityNumber",
+			"name": "getClientById",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/client/findClientByIdentificationNumber/1723291090",
+					"raw": "http://20.242.241.83:8080/client/1",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"20",
+						"242",
+						"241",
+						"83"
+					],
+					"port": "8080",
+					"path": [
+						"client",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getClientByIdentificationNumber",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://20.242.241.83:8080/client/findClientByIdentificationNumber/1",
+					"protocol": "http",
+					"host": [
+						"20",
+						"242",
+						"241",
+						"83"
 					],
 					"port": "8080",
 					"path": [
 						"client",
 						"findClientByIdentificationNumber",
-						"1723291090"
+						"1"
 					]
 				}
 			},
@@ -118,10 +145,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/client/deleteClient/3",
+					"raw": "http://20.242.129.177:8080/client/deleteClient/3",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"20",
+						"242",
+						"129",
+						"177"
 					],
 					"port": "8080",
 					"path": [
@@ -140,7 +170,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"provincia\":\"Pichincha\",\r\n    \"ciudad\":\"Quito\",\r\n    \"direccion\":\"San Isidro de puengasssssi S&G\",\r\n    \"matriz\":true,\r\n    \"id_cliente\":16\r\n   \r\n}",
+					"raw": "{\r\n    \"provincia\":\"Pichincha\",\r\n    \"ciudad\":\"Quito\",\r\n    \"direccion\":\"San Isidro de puengasssssi S&G\",\r\n    \"matriz\":false,\r\n    \"id_cliente\":1\r\n   \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -148,10 +178,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/address/saveAddress",
+					"raw": "http://20.242.129.177:8080/address/saveAddress",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"20",
+						"242",
+						"129",
+						"177"
 					],
 					"port": "8080",
 					"path": [
@@ -163,15 +196,18 @@
 			"response": []
 		},
 		{
-			"name": "get Address",
+			"name": "getAddress",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/address",
+					"raw": "http://20.242.129.177:8080/address",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"20",
+						"242",
+						"129",
+						"177"
 					],
 					"port": "8080",
 					"path": [
@@ -182,23 +218,10 @@
 			"response": []
 		},
 		{
-			"name": "get Address by client id",
+			"name": "get Address by client id Copy",
 			"request": {
 				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/address/findbyidclient/81",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"address",
-						"findbyidclient",
-						"81"
-					]
-				}
+				"header": []
 			},
 			"response": []
 		}
