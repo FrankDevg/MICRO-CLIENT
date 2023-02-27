@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  app:
+    image: 'minegocio-management:latest'
+    build:
+      context: .
+    container_name: minogicioapp
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/minegocio
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=258456
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_SHOW_SQL=true
+    ports:
+      - 8080:8080
+
+  db:
+    image: 'postgres:latest'
+    container_name: postgres-minegocio
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=compose-258456
