@@ -50,7 +50,11 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public ClientEntity updateClient(ClientEntity clientEntity) {
-        return clientRepository.save(clientEntity);
+        ClientEntity clientToUpdate = clientRepository.getOne(clientEntity.getId_cliente());
+        clientToUpdate.setCelular(clientEntity.getCelular()!=null?clientEntity.getCelular():clientToUpdate.getCelular());
+        clientToUpdate.setNombres(clientEntity.getNombres()!=null?clientEntity.getNombres():clientToUpdate.getNombres());
+        clientToUpdate.setCorreo(clientEntity.getCorreo()!=null?clientEntity.getCorreo():clientToUpdate.getCorreo());
+        return clientRepository.save(clientToUpdate);
     }
 
     @Override

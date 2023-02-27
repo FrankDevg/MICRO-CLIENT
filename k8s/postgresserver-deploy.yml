@@ -1,28 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: postgres-deploy
-  labels:
-    name: postgres-deploy
-    app: minegocioapp
+  name: postgres
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: minegocioapp
-      name: postgres-pod
+      name: postgres
   template:
     metadata:
-      name: postgres-pod
       labels:
         app: minegocioapp
-        name: postgres-pod
+        name: postgres
     spec:
       containers:
         - name: postgres
           image: postgres:latest
+          imagePullPolicy: "IfNotPresent"
           ports:
             - containerPort: 5432
-          env:
-            - POSTGRES_USER=postgres
-            - POSTGRES_PASSWORD=compose-258456
+          envFrom:
+            - configMapRef:
+                name: postgres-config
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgredb
+      volumes:
+        - name: postgredb
+          persistentVolumeClaim:
+            claimName: postgres-pv-claim

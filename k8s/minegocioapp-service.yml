@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: minegocioapp
+  labels:
+    name: minegocioapp
+    app: microservice
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: minegocioapp
+    type: microservice

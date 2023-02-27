@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minegocioapp-deploy
+  labels:
+    name: minegocioapp-deploy
+    app: microservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minegocioapp
+      type: microservice
+  template:
+    metadata:
+      name: minegocioapp-pod
+      labels:
+        app: minegocioapp
+        type: microservice
+    spec:
+      containers:
+        - name: minegocioapp
+          image: frankdevg/minegocioapp:1.3
+          ports:
+            - containerPort: 8080
+          env:
+            - name: Postgres__ConecctionString
+              value: User ID=postgres;Password=258456;Port=5432;Database=minegocio;
