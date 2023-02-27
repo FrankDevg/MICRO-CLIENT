@@ -68,12 +68,6 @@ Requerimientos:
 * PostgreSQL
 * Pruebas Unitarias (Junit y Mockito)
 <!-- ROADMAP -->
-## Aporte Extra
-
-- [x] Docker
-- [x] Kubernetes
-- [x] Deploy en AKS
-- [x] CI
 
 <!-- GETTING STARTED -->
 ## TDD
@@ -97,11 +91,36 @@ Semaforo Verde :
 ### Prueba Unitarias
 
 ClientControllerTest
+
+
 ![image](https://user-images.githubusercontent.com/52903207/221488202-f1b02626-7b6e-4f81-84d1-be588f51de3d.png)
 
 
 AddressControllerTests
+
+
 ![image](https://user-images.githubusercontent.com/52903207/221488308-e476e79a-4682-468c-8201-021e73e086c3.png)
+
+## Aporte Extra
+
+- [x] Docker
+![image](https://user-images.githubusercontent.com/52903207/221493633-aabb9a1e-bfd5-4764-934c-230196d54151.png)
+
+- [x] Kubernetes
+
+
+![image](https://user-images.githubusercontent.com/52903207/221494611-97730085-a06f-4d90-a80c-cfe26d363e6b.png)
+
+- [x] Deploy en AKS
+
+
+![image](https://user-images.githubusercontent.com/52903207/221494529-2feb4d0d-40c0-4fc4-b299-aa772d947b2a.png)
+
+- [x] CI
+
+
+![image](https://user-images.githubusercontent.com/52903207/221493492-948f8f8d-992b-4015-82e6-6fc084dbc30c.png)
+
 
 ## Trabajo a futuro
 
