@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deploy
+  labels:
+    name: postgres-deploy
+    app: minegocioapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minegocioapp
+      name: postgres-pod
+  template:
+    metadata:
+      name: postgres-pod
+      labels:
+        app: minegocioapp
+        name: postgres-pod
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:latest
+          ports:
+            - containerPort: 5432
+          env:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=compose-258456
