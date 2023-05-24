@@ -22,7 +22,7 @@
     <img src="https://media.discordapp.net/attachments/836284594948407366/1079636506022527096/image.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h1 align="center">Mi negocio Spring Boot</h1>
+  <h1 align="center">MSpring Boot</h1>
 
   <p align="center">
     Sistema de facturación electrónica - Módulo Cliente-Dirección
